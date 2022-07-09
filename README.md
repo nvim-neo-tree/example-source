@@ -10,7 +10,7 @@ as an external plugin.
 ```lua
 use {
   "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
+    branch = "external_sources_take_2",
     requires = { 
       "nvim-lua/plenary.nvim",
       "kyazdani42/nvim-web-devicons",
