@@ -25,8 +25,8 @@ use {
             "git_status",
             "example" -- <-- external sources need to be a fully qualified path to the module
             --"my.name.example" <-- Feel free to add to your folder structure to create a namespace,
-                                 -- The name of the modeul will be the last part, or whatever your module
-                                 -- experts as the `name` field.
+                                 -- The name of the source will be the last part, or whatever your module
+                                 -- exports as the `name` field.
         },
         example = {
             -- The config for your source goes here. This is the same as any other source, plus whatever
@@ -36,8 +36,6 @@ use {
             --etc
         },
       })
-
-      vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
     end
 }
 ```
