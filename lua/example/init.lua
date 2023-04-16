@@ -6,7 +6,13 @@ local renderer = require("neo-tree.ui.renderer")
 local manager = require("neo-tree.sources.manager")
 local events = require("neo-tree.events")
 
-local M = { name = "example" }
+local M = {
+  -- This is the name our source will be referred to as
+  -- within Neo-tree
+  name = "example",
+  -- This is how our source will be displayed in the Source Selector
+  display_name = "留Example"
+}
 
 ---Navigate to the given path.
 ---@param path string Path to navigate to. If empty, will navigate to the cwd.
