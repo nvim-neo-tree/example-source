@@ -1,5 +1,6 @@
 --This file should contain all commands meant to be used by mappings.
 local cc = require("neo-tree.sources.common.commands")
+local manager = require("neo-tree.sources.manager")
 
 local vim = vim
 
@@ -11,6 +12,10 @@ M.example_command = function(state)
   local id = node:get_id()
   local name = node.name
   print(string.format("example_command: id=%s, name=%s", id, name))
+end
+
+M.refresh = function(state)
+  manager.refresh("example", state)
 end
 
 M.show_debug_info = function(state)

@@ -62,22 +62,26 @@ M.navigate = function(state, path)
       id = "1",
       name = "root",
       type = "directory",
+      stat_provider = "example-custom",
       children = {
         {
           id = "1.1",
           name = "child1",
           type = "directory",
+          stat_provider = "example-custom",
           children = {
             {
               id = "1.1.1",
               name = "child1.1 (you'll need a custom renderer to display this properly)",
               type = "custom",
+              stat_provider = "example-custom",
               extra = { custom_text = "HI!" },
             },
             {
               id = "1.1.2",
               name = "child1.2",
-              type = "file"
+              type = "file",
+              stat_provider = "example-custom",
             },
           },
         },
@@ -91,6 +95,8 @@ end
 ---@param config table Configuration table containing any keys that the user
 --wants to change from the defaults. May be empty to accept default values.
 M.setup = function(config, global_config)
+  -- redister or custom stat provider to override the default libuv one
+  require("neo-tree.utils").register_stat_provider("example-custom", M.get_node_stat)
   -- You most likely want to use this function to subscribe to events
   if config.use_libuv_file_watcher then
     manager.subscribe(M.name, {
