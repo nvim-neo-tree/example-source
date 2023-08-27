@@ -5,6 +5,7 @@ local vim = vim
 local renderer = require("neo-tree.ui.renderer")
 local manager = require("neo-tree.sources.manager")
 local events = require("neo-tree.events")
+local utils = require("neo-tree.utils")
 
 local M = {
   -- This is the name our source will be referred to as
@@ -13,6 +14,39 @@ local M = {
   -- This is how our source will be displayed in the Source Selector
   display_name = "留Example"
 }
+
+
+---Returns the stats for the given node in the same format as `vim.loop.fs_stat`
+---@param node table NuiNode to get the stats for.
+--- Example return value:
+---
+--- {
+---   birthtime {
+---     sec = 1692617750 -- seconds since epoch
+---   },
+---   mtime = {
+---     sec = 1692617750 -- seconds since epoch
+---   },
+---   size = 11453, -- size in bytes
+--- }
+--
+---@class StatTime
+--- @field sec number
+---
+---@class StatTable
+--- @field birthtime StatTime
+--- @field mtime StatTime
+--- @field size number
+---
+--- @return StatTable Stats for the given node.
+M.get_node_stat = function(node)
+  -- This is just fake data, you'll want to replace this with something real
+  return {
+    birthtime = { sec = 1692617750 },
+    mtime = { sec = 1692617750 },
+    size = 11453,
+  }
+end
 
 ---Navigate to the given path.
 ---@param path string Path to navigate to. If empty, will navigate to the cwd.
