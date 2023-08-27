@@ -66,4 +66,4 @@ The `stat_provider` function will only be called once per node and the result wi
 
 Alternatively, if it's not beneficial to lazy load these stats and you want to provide them premptively, you can just add them to each item that you send to `showNodes` as a property called `stat`. If you do this, there is no need to register a provider.
 
-You cluld technically mix and match these strategies. Each node should have either a `stat` or a `stat_provider` property.
+You could technically mix and match these strategies. Each node should have either a `stat` or a `stat_provider` property.
